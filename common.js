@@ -2,7 +2,6 @@ Function.prototype.scope = function () {
     var argsOuter = Array.prototype.slice.call(arguments);
     var func = this;
     var scope = argsOuter[0];
-
     if (argsOuter.length > 1 && argsOuter[1] && !argsOuter[1].length)
         argsOuter = argsOuter.slice(1);
     else if (argsOuter[1] && argsOuter[1].length > 1)
