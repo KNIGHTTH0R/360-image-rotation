@@ -1,4 +1,4 @@
-Function.prototype.scope = function () {
+Function.prototype.scope = function () { 
     var argsOuter = Array.prototype.slice.call(arguments);
     var func = this;
     var scope = argsOuter[0];
