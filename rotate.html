@@ -1,0 +1,85 @@
+<html>
+<head>
+
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<!--[if IE]><script type="text/javascript" src="common/scripts/excanvas.js"></script><![endif]-->
+
+	<title>360 degrees web show</title>
+
+	<meta name="Author" content="http://www.quanjingxiu.com" />
+	
+	<script src="common/scripts/commons.js" type="text/javascript" charset="utf-8"></script>
+	<script src="common/scripts/prototype.js" type="text/javascript" charset="utf-8"></script>
+	<script src="common/scripts/vr.js" type="text/javascript" charset="utf-8"></script>
+	
+	<script type="text/javascript" charset="utf-8">
+	
+		var global_clockwise = false;
+		var global_auto_rotate = true;
+		var global_zoom = 2;
+		var global_lensRadius = 200;
+		var global_image_width = 500;
+		var global_image_height = 441;
+		var global_src_image_width = 1000;
+		var global_src_image_height = 882;
+		var global_auto_ratate_speed = 12;
+		var global_toolbar_height = 40;
+		
+		var global_mode_auto_rotate = 1;
+		var global_mode_manual_rotate = 2;
+		var global_mode_magnify = 3;
+		var _vr = null;
+		
+		function load() {
+		
+			var url = "" + window.location;
+			var iframe_string = document.getElementById("iframe_string");
+			iframe_string.innerHTML = "&lt;iframe src='" + url + "' width=500 height=481 scrolling='no' frameborder='0'&gt;&lt;/iframe&gt;";
+			
+			    var VRoptions = {
+			    invert:global_clockwise,
+			    autoPlay:global_auto_rotate,
+			    fps:global_auto_ratate_speed
+		};
+		
+			_vr = new VR('viewer', '116_files/small/#.jpg', '116_files/big/#.jpg', 118, VRoptions);
+		}
+		
+	</script>
+	
+</head>
+
+<body onLoad="load()">
+<article id="main" class="content">
+		<section id="showcase">
+					
+					<section align="center">
+					   <div id="viewer" style="text-align: center;"></div>
+					    <div style="text-align: center;">
+								<img id="btnAutoRot" name="btnAutoRot" src="common/icons/auto_rotate_down.png" onmouseover="JavaScript:_vr.autoRot_onMouseOver();" onmouseout="JavaScript:_vr.autoRot_onMouseOut();" onmousedown="JavaScript:_vr.autoRot_onMouseDown();" onclick="JavaScript:_vr.autoRot_onMouseClick();" width="24" height="24" border="0" title="Rotate Manually" />
+								<img id="btnManualRot" name="btnManualRot" src="common/icons/manual_rotate_up.png" onmouseover="JavaScript:_vr.manualRot_onMouseOver();" onmouseout="JavaScript:_vr.manualRot_onMouseOut();" onmousedown="JavaScript:_vr.manualRot_onMouseDown();" onclick="JavaScript:_vr.manualRot_onMouseClick();" width="24" height="24" border="0" title="Rotate Automatically" />
+								<img id="btnMagnifier" name="btnMagnifier" src="common/icons/enlarge_up.png" onmouseover="JavaScript:_vr.magnifier_onMouseOver();" onmouseout="JavaScript:_vr.magnifier_onMouseOut();" onmousedown="JavaScript:_vr.magnifier_onMouseDown();" onclick="JavaScript:_vr.magnifier_onMouseClick();" width="24" height="24" border="0" title="Magnifier" />
+						</div>
+					</section>
+					
+					<section align="center">
+						<div style="text-align: left; padding-top:100px;">
+Upload the animation files to your web server, then open this html again. Copy the following line and embed it into your web page to show the animation:
+						</div>
+						<div style="text-align: center;">
+							<CODE>
+								<DIV style="BORDER-BOTTOM: black 1px solid; TEXT-ALIGN: left; BORDER-LEFT: black 1px solid; PADDING-BOTTOM: 3px; BACKGROUND-COLOR: window; PADDING-LEFT: 3px; PADDING-RIGHT: 3px; FONT-FAMILY: verdana; COLOR: black; MARGIN-LEFT: auto; FONT-SIZE: 12pt; BORDER-TOP: black 1px solid; MARGIN-RIGHT: auto; BORDER-RIGHT: black 1px solid; PADDING-TOP: 3px" align=center>
+								    <FONT color=#3366ff size=2>
+									<STRONG>
+									    <DIV id='iframe_string'></DIV>
+									</STRONG>
+								    </FONT>
+								</DIV>
+							</CODE>
+						</div>
+					</section>
+		</section>
+	</article>
+	
+</body>
+</html>
